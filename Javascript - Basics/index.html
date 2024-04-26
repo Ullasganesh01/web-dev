@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="myCode"></p>
+    <script>
+
+        /* String methods/functions */
+        // window.alert("hello");
+
+        // const date = new Date();
+        // document.getElementById("myCode").innerHTML = date;
+
+        let txt = "Ullas Ganesh";
+        document.getElementById("myCode").innerHTML = txt.length;
+        document.getElementById("myCode").innerHTML = txt.charAt(2);
+        document.getElementById("myCode").innerHTML = txt.charCodeAt(2);
+        document.getElementById("myCode").innerHTML = txt.at(3);
+        document.getElementById("myCode").innerHTML = txt.slice(3);
+        document.getElementById("myCode").innerHTML = txt.slice(3,8);
+        document.getElementById("myCode").innerHTML = txt.substring(3);
+        document.getElementById("myCode").innerHTML = txt.substring(3,8);
+        document.getElementById("myCode").innerHTML = txt.substr(3);
+        document.getElementById("myCode").innerHTML = txt.substr(3,8);
+        document.getElementById("myCode").innerHTML = txt.toUpperCase();
+        document.getElementById("myCode").innerHTML = txt.toLowerCase();
+        document.getElementById("myCode").innerHTML = txt.concat("G");
+        document.getElementById("myCode").innerHTML = txt.repeat(3);
+        document.getElementById("myCode").innerHTML = txt.replace("Ganesh","G");
+        document.getElementById("myCode").innerHTML = txt.replace("l","a");
+        document.getElementById("myCode").innerHTML = txt.replaceAll("l","a");
+        document.getElementById("myCode").innerHTML = txt.split("");
+        document.getElementById("myCode").innerHTML = txt.split(" ");
+        document.getElementById("myCode").innerHTML = txt.indexOf("a");
+        document.getElementById("myCode").innerHTML = txt.lastIndexOf("a");
+        document.getElementById("myCode").innerHTML = txt.search("ll");
+        document.getElementById("myCode").innerHTML = txt.match("ll");
+        document.getElementById("myCode").innerHTML = txt.match(/a/g);
+        document.getElementById("myCode").innerHTML = txt.matchAll("a");
+        let arr = txt.matchAll("a");
+        Array.from(arr).forEach(x => document.getElementById("myCode").innerHTML+=x + " ");
+        document.getElementById("myCode").innerHTML = txt.includes("as");
+        document.getElementById("myCode").innerHTML = txt.startsWith("Ul");
+        document.getElementById("myCode").innerHTML = txt.endsWith("sh");
+            
+    </script>
+
+    <script>
+        /* Number and Math Functions */
+        let num = 1000;
+        document.getElementById("myCode").innerHTML = num.toString();
+        document.getElementById("myCode").innerHTML = num.toExponential(2);
+        document.getElementById("myCode").innerHTML = num.toFixed(3);
+        document.getElementById("myCode").innerHTML = num.toPrecision(3);
+        document.getElementById("myCode").innerHTML = num.valueOf();
+
+        document.getElementById("myCode").innerHTML = Number.EPSILON;
+        document.getElementById("myCode").innerHTML = Number.MAX_VALUE;
+        document.getElementById("myCode").innerHTML = Number.MIN_VALUE;
+        document.getElementById("myCode").innerHTML = Number.MAX_SAFE_INTEGER;
+        document.getElementById("myCode").innerHTML = Number.MIN_SAFE_INTEGER;
+        document.getElementById("myCode").innerHTML = Number.POSITIVE_INFINITY;
+        document.getElementById("myCode").innerHTML = Number.NEGATIVE_INFINITY;
+        document.getElementById("myCode").innerHTML = Number.NaN;
+
+        let num2 = 958.457;
+        document.getElementById("myCode").innerHTML = Math.PI;
+        document.getElementById("myCode").innerHTML = Math.abs(num2);
+        document.getElementById("myCode").innerHTML = Math.round(num2);
+        document.getElementById("myCode").innerHTML = Math.ceil(num2);
+        document.getElementById("myCode").innerHTML = Math.floor(num2);
+        document.getElementById("myCode").innerHTML = Math.trunc(num2);
+        document.getElementById("myCode").innerHTML = Math.sign(num2);
+        document.getElementById("myCode").innerHTML = Math.pow(2,3);
+        document.getElementById("myCode").innerHTML = Math.abs(num2);
+        document.getElementById("myCode").innerHTML = Math.sqrt(4);
+        document.getElementById("myCode").innerHTML = Math.min(10,40,4,95,2);
+        document.getElementById("myCode").innerHTML = Math.max(10,40,4,95,2);
+        document.getElementById("myCode").innerHTML = Math.floor(Math.random()*11);
+    </script>
+
+    <script>
+        /* Array functions */
+
+        const pens = ["red", "green", "yellow", "orange"];
+        document.getElementById("myCode").innerHTML = pens.length; 
+        document.getElementById("myCode").innerHTML = pens.reverse();
+        document.getElementById("myCode").innerHTML = pens.shift();
+        document.getElementById("myCode").innerHTML = pens.unshift("white");
+        document.getElementById("myCode").innerHTML = pens.pop();
+        document.getElementById("myCode").innerHTML = pens.push("white");
+        document.getElementById("myCode").innerHTML = pens.slice(2);
+        document.getElementById("myCode").innerHTML = pens.slice(1,3);
+        document.getElementById("myCode").innerHTML = pens.splice(2);
+        document.getElementById("myCode").innerHTML = pens.splice(1,3);
+        document.getElementById("myCode").innerHTML = pens.splice(1,2,"brown","purple");
+        document.getElementById("myCode").innerHTML = pens.indexOf("yellow");
+        document.getElementById("myCode").innerHTML = pens.join("-");
+
+        document.getElementById("myCode").innerHTML = pens[2];
+        document.getElementById("myCode").innerHTML = pens.toString();
+
+        pens[2] = "black";
+        pens.forEach(value => console.log(value));
+
+        document.getElementById("myCode").innerHTML = Array.isArray(pens);
+        document.getElementById("myCode").innerHTML = pens.includes("green");
+        document.getElementById("myCode").innerHTML = pens.find(value => value.length > 5);
+        document.getElementById("myCode").innerHTML = pens.findIndex(value => value.length>5);
+        document.getElementById("myCode").innerHTML = pens.findLast(value => value.length>5);
+        document.getElementById("myCode").innerHTML = pens.findLastIndex(value => value.length>5);
+        document.getElementById("myCode").innerHTML = pens.sort();
+        document.getElementById("myCode").innerHTML = pens.reverse();
+
+        document.getElementById("myCode").innerHTML = pens;
+
+        const nums = [45,4,9,16,25];
+        document.getElementById("myCode").innerHTML = nums.sort();
+        nums.forEach( value => console.log(value));
+
+        document.getElementById("myCode").innerHTML = nums.map( value => value*2);
+        document.getElementById("myCode").innerHTML = nums.filter(value => value>18);
+        document.getElementById("myCode").innerHTML = nums.reduce( (total,value) => total + value);
+        document.getElementById("myCode").innerHTML = nums.every(value => value>18);
+        document.getElementById("myCode").innerHTML = nums.every(value => value>2);
+        document.getElementById("myCode").innerHTML = nums.some(value => value>18);
+        document.getElementById("myCode").innerHTML = nums.some(value => value>50);
+        document.getElementById("myCode").innerHTML = Array.from(nums.keys()).toString();
+        document.getElementById("myCode").innerHTML = Array.from(nums.entries()).join("--");
+
+        const myArr = [[1,2],[3,4],[5,6],[7,8],[9,10]];
+        document.getElementById("myCode").innerHTML = myArr.flat();
+    </script>
+
+    <script>
+        /* Date Functions */
+        const myDate = new Date();
+        document.getElementById("myCode").innerHTML = myDate;
+        document.getElementById("myCode").innerHTML = myDate.getFullYear();
+        document.getElementById("myCode").innerHTML = myDate.getMonth()+1;
+        document.getElementById("myCode").innerHTML = myDate.getDate();
+        document.getElementById("myCode").innerHTML = myDate.getDay();
+        document.getElementById("myCode").innerHTML = myDate.getHours();
+        document.getElementById("myCode").innerHTML = myDate.getMinutes();
+        document.getElementById("myCode").innerHTML = myDate.getSeconds();
+        document.getElementById("myCode").innerHTML = myDate.getMilliseconds();
+        document.getElementById("myCode").innerHTML = myDate.getTime();
+    </script>
+
+    <script>
+        /* Set functions */
+
+        const letters = new Set();
+        letters.add("a");
+        letters.add("b");
+        letters.add("c");
+        letters.add("d");
+        letters.add("e");
+        letters.add("a");//not allowed
+
+        // document.getElementById("myCode").innerHTML = letters.forEach(val => console.log(val));
+        // document.getElementById("myCode").innerHTML = letters.delete("a");
+        // document.getElementById("myCode").innerHTML = letters.forEach(val => console.log(val));
+        // document.getElementById("myCode").innerHTML = letters.has("b");
+        document.getElementById("myCode").innerHTML = letters.values();
+        for(const x of letters.values()){
+            console.log(x);
+        }
+
+        document.getElementById("myCode").innerHTML = letters.size;
+
+    </script>
+
+    <script>
+        /* Map functions */
+        const myMap = new Map();
+        myMap.set('apples',500);
+        myMap.set('mangoes',400);
+        myMap.set('banana',700);
+
+        document.getElementById("myCode").innerHTML = myMap;
+        for(var y of myMap.entries()){
+            console.log(y);
+        }
+
+        myMap.forEach((key,val) => console.log(key,val));
+        document.getElementById("myCode").innerHTML = myMap.has("mangoes");
+        document.getElementById("myCode").innerHTML = myMap.get("mangoes");
+        document.getElementById("myCode").innerHTML = myMap.delete("mangoes");
+        myMap.forEach((key,val) => console.log(key,val));
+        document.getElementById("myCode").innerHTML = myMap.size;
+        for(var y of myMap.keys()){
+            console.log(y);
+        }
+        for(var y of myMap.values()){
+            console.log(y);
+        }
+    </script>
+
+    <script>
+        /* regex */
+        let text = "Ullas Ganesh";
+        let n = text.search("ll");
+        document.getElementById("myCode").innerHTML = n;
+
+        const myPattern = /ne/;
+        document.getElementById("myCode").innerHTML = myPattern.test(text);
+        document.getElementById("myCode").innerHTML = myPattern.exec(text);
+    </script>
+
+    <script>
+        /* functions */
+        function sum(a,b){
+            return a + b;
+        }
+        document.getElementById("myCode").innerHTML = sum(2,5);
+
+        var y = function(a,b,c){
+            return a*b*c;
+        }
+        document.getElementById("myCode").innerHTML = y(1,2,3);
+
+        y = new Function("a","b","return a**b");
+        document.getElementById("myCode").innerHTML = y(2,3);
+
+        (function (){
+            document.getElementById("myCode").innerHTML = "hello";
+        }) () 
+        
+        var body = "return rad*rad"
+        var rad = new Function("rad",body);
+        document.getElementById("myCode").innerHTML = rad(3);
+
+        var diff = (a,b) => a-b;
+        document.getElementById("myCode").innerHTML = diff(4,2);
+
+        function* generatorFunc(){
+            yield 1;
+            yield 2;
+            return 3;
+        }
+
+        let genOut = generatorFunc();
+        console.log(genOut.next());
+        console.log(genOut.next());
+        console.log(genOut.next());
+
+        let a=1;
+        let b=2;
+        let c=5;
+        document.getElementById("myCode").innerHTML = eval("a+b");
+        document.getElementById("myCode").innerHTML = eval(c);
+
+        var x=10;
+        function func1(){
+            var y=20;
+            function func2(){
+                var z;
+                z = x+y;
+                return z;
+            }
+            return func2();
+        }
+        document.getElementById("myCode").innerHTML = func1();
+    </script>
+
+    <script>
+        /* Objects */
+        const person = {
+            fname : "Ullas",
+            lname : "Ganesh",
+            age : 22,
+            fullname : function(){
+                return this.fname + " " + this.lname;
+            }
+        }
+
+        document.getElementById("myCode").innerHTML = person.fullname();
+        document.getElementById("myCode").innerHTML = person.age;
+
+        const person1 = {
+            fname : "Gagan",
+            lname : "Gowda"
+        }  
+        document.getElementById("myCode").innerHTML = person.fullname.call(person1);
+        document.getElementById("myCode").innerHTML = person.fullname.apply(person1);
+
+        document.getElementById("myCode").innerHTML = Math.max(1,2,3);
+        document.getElementById("myCode").innerHTML = Math.max.apply(null,[1,2,3,4]);
+
+        document.getElementById("myCode").innerHTML = person.fullname.bind(person1)();
+
+    </script>
+
+    <script>
+        /* Classes */
+
+        class Car{
+            constructor(name,year){
+                this.name = name;
+                this.year = year;
+            }
+
+            age(){
+                const date = new Date();
+                return date.getFullYear() - this.year;
+            }
+
+            age1(x){
+                return x - this.year;
+            }
+
+            get cname(){
+                return this.name;
+            }
+
+            set cname(x){
+                this.name = x;
+            }
+        }
+
+        const myCar = new Car("Porsche",2023);
+
+        document.getElementById("myCode").innerHTML = myCar.name + " " + myCar.year + " " + myCar.age() + " " + myCar.age1(2025);
+        document.getElementById("myCode").innerHTML = myCar.cname;
+        myCar.cname = "GT3RS";
+        document.getElementById("myCode").innerHTML = myCar.cname;
+    </script>
+
+    <script>
+        // setTimeout(disHello,3000);
+        function disHello(){
+            document.getElementById("myCode").innerHTML = "Hello This is set interval";
+        }
+
+        // setInterval(disTime,1000);
+        function disTime(){
+            var date = new Date();
+            document.getElementById("myCode").innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+
+        let myPromise = new Promise(function(resolve,reject){
+            let x=0;
+            x = 5;
+            if(x==0){
+                resolve("Ok");
+            }else{
+                reject("Error");
+            }
+        });
+
+        myPromise.then(
+            function(value){
+                document.getElementById("myCode").innerHTML = value;
+            },
+            function(error){
+                document.getElementById("myCode").innerHTML = error;
+            }
+        );
+
+        myPromise = new Promise(function(myResolve, myReject) {
+            setTimeout(function() { myResolve("I love You !!"); }, 3000);
+        });
+
+        myPromise.then(function(value) {
+          document.getElementById("myCode").innerHTML = value;
+        });
+    </script>
+</body>
+</html>

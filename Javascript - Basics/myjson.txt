@@ -1,0 +1,9 @@
+{
+    "name":"Ullas",
+    "age":22,
+    "cars":[
+        { "car":"porsche", "color":"black" },
+        { "car":"bmw", "color":"red" },
+        { "car":"range rover", "color":"brown" }
+    ]
+}

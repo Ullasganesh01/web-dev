@@ -1,0 +1,23 @@
+/* Write your code here: */
+/* group selector */
+h1,h2{
+    color: blueviolet;
+}
+
+.box>p{   /*Descendent selector-direct child*/
+    color: firebrick;
+}
+/* any level descendent */
+div li{
+    color: blue;
+}
+
+/* chained selector for a particular element tagclassnameidname without spaces */
+li.done{
+    color: seagreen;
+}
+
+/* combining both ancestor and chaining */
+ul p.done{
+    font-size: 0.5rem;
+}

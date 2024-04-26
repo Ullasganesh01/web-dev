@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1><%= curdate %> <br> <%= workTitle %></h1>
+    </div>
+    <!-- <div style="display: inline-flex;">
+        <p><button><a href="/">Normal Routine</a> </button></p> 
+        <p><button><a href="/work">Work</a></button></p>
+    </div> -->
+    
+    
+    <div class="box">
+        <% if(locals.myTodos.length > 0) { %>
+            
+                <% for(let i=0;i<myTodos.length;i++){%>
+                    <div class="item">
+                        <input type="checkbox">
+                        <p><%= myTodos[i]  %></p>
+                    </div>
+                <% }%>
+        <% } %>
+        
+        <form class="item" action="/" method="post">
+            <input type="text" name="todo" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="listType" value="<%= workTitle %>" >+</button>
+        </form>
+    </div>
+    
+        
+
+</body>
+</html>

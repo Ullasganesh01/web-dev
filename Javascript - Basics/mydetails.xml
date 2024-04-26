@@ -1,0 +1,26 @@
+<PERSONS>
+    <PERSON>
+        <NAME>Ullas</NAME>
+        <AGE>22</AGE>
+        <CAR>Porsche</CAR>
+        <JOB>Full stack Developer</JOB>
+    </PERSON>
+    <PERSON>
+        <NAME>Tejas</NAME>
+        <AGE>23</AGE>
+        <CAR>Audi</CAR>
+        <JOB>Web Developer</JOB>
+    </PERSON>
+    <PERSON>
+        <NAME>Sharan</NAME>
+        <AGE>24</AGE>
+        <CAR>BMW</CAR>
+        <JOB>Backend Developer</JOB>
+    </PERSON>
+    <PERSON>
+        <NAME>Gagan</NAME>
+        <AGE>21</AGE>
+        <CAR>Lexus</CAR>
+        <JOB>Developer</JOB>
+    </PERSON>
+</PERSONS>

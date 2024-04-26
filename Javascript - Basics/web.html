@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="checkCookie()">
+    <p id="demo"></p>
+    <button type="button" onclick="loadDoc()">READ TEXT</button>
+
+    <button type="button" onclick="getXml()">XML</button>
+
+    <button type="button" onclick="parseJSON1()">JSON 1</button>
+
+    <button type="button" onclick="storeJSON()">Store JSON</button>
+
+    <button type="button" onclick="parseJSON2()">JSON 2</button>
+    <script>
+        let myDemo = document.getElementById("demo");
+
+        // window -------------------------------
+        myDemo.innerHTML = window.innerWidth + " " + window.innerHeight;
+        //window.open();
+        // window.close();
+        window.moveTo(20,0);
+        window.resizeTo(200,300);
+
+        // screen ------------------------------------
+
+        myDemo.innerHTML = screen.width + " " + screen.height + " "+ screen.availWidth + " " + screen.availHeight +" "+screen.colorDepth + " " + screen.pixelDepth;
+
+        // location ------------------------------------
+        myDemo.innerHTML = location.href + " ---- " + location.hostname + " ----- " + location.pathname + " ------ " +location.protocol + " ------ " + location.port;
+
+        myDemo.addEventListener('click',function(){
+            location.assign("https://www.google.com")
+        })
+
+        // history --------------------------------------
+
+        myDemo.addEventListener('click',function(){
+            history.back();
+        })
+        myDemo.addEventListener('click',function(){
+            history.forward();
+        })
+
+        // navigator ------------------------------------- functions are wrong 
+
+        myDemo.innerHTML = navigator.cookieEnabled + " " + navigator.appName + " " + navigator.clipboard.readText() + " " + navigator.credentials.get() + " " + navigator.geolocation[0] + " " + navigator.storage.getDirectory() + " " + navigator.product + " " + navigator.appVersion + " " + navigator.appCodeName + " " + navigator.userAgent + " " + navigator.platform + " " + navigator.language + " " + navigator.languages+ " " + navigator.onLine + " " + navigator.javaEnabled();
+
+        // popups
+
+        //alert("this is alert message");
+
+        // if (confirm("This is confirm message")){
+        //     myDemo.innerHTML = "OK";
+        // }else{
+        //     myDemo.innerHTML = "cancel";
+        // }
+
+        // let txt = prompt("Please enter","Name");
+        // if(txt.length<3 || txt==null || txt == ""){
+        //     myDemo.innerHTML = "enter something";
+        // }else{
+        //     myDemo.innerHTML = txt;
+        // }
+
+        // cookies 
+
+        function setCookie(cname,cvalue,exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+          let name = cname + "=";
+          let decodedCookie = decodeURIComponent(document.cookie);
+          let ca = decodedCookie.split(';');
+          for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+
+        // function checkCookie() {
+        //   let user = getCookie("username");
+        //   if (user != "") {
+        //     alert("Welcome again " + user);
+        //   } else {
+        //      user = prompt("Please enter your name:","");
+        //      if (user != "" && user != null) {
+        //        setCookie("username", user, 30);
+        //      }
+        //   }
+        // }
+
+        // local and session storage 
+
+        localStorage.setItem("name","Ullas");
+        myDemo.innerHTML = localStorage.getItem("name");
+
+        sessionStorage.setItem("name","Ullas Ganesh");
+        myDemo.innerHTML = sessionStorage.getItem("name");
+
+        myDemo.innerHTML = localStorage.key(1) + " " + localStorage.length ;
+        localStorage.removeItem("name");
+        localStorage.clear();
+        myDemo.innerHTML = localStorage.key(1) + " " + localStorage.length ;
+
+        myDemo.innerHTML = sessionStorage.key(1) + " " + sessionStorage.length;
+        sessionStorage.removeItem("name");
+        sessionStorage.clear();
+        myDemo.innerHTML = sessionStorage.key(1) + " " + sessionStorage.length;
+
+
+        //fetch api
+
+        let file = "./mytext.txt";
+
+        fetch (file)
+        .then(x => x.text())
+        .then(y => myDemo.innerHTML = y);
+
+        // same as above
+        getText("./mytext.txt");
+
+        async function getText(file) {
+            let myObject = await fetch(file);
+            let myText = await myObject.text();
+            myDemo.innerHTML = myText;
+        }
+
+        
+
+        // AJAX
+
+        function loadDoc(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                myDemo.innerHTML = this.responseText;
+            }
+            xhttp.open('GET',"./mytext.txt");
+            xhttp.send();
+        }
+
+        function getXml(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                display(this);
+            }
+            xhttp.open('GET',"mydetails.xml");
+            xhttp.send();
+        }
+
+        function display(xml){
+            const xmldoc = xml.responseXML;
+            const x = xmldoc.getElementsByTagName("PERSON");
+            for(let i=0; i<x.length; i++){
+                let mybody =  document.getElementsByTagName("body");
+                let mydiv =  document.createElement("div");
+
+                let myname = document.createElement("p");
+                myname.innerHTML = x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
+                let myage = document.createElement("p");
+                myage.innerHTML = x[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue;
+                let mycar = document.createElement("p");
+                mycar.innerHTML = x[i].getElementsByTagName("CAR")[0].childNodes[0].nodeValue;
+                let myjob = document.createElement("p");
+                myjob.innerHTML = x[i].getElementsByTagName("JOB")[0].childNodes[0].nodeValue;
+
+                mydiv.appendChild(myname);
+                mydiv.appendChild(myage);
+                mydiv.appendChild(mycar);
+                mydiv.appendChild(myjob);
+
+                mybody[0].appendChild(mydiv);
+            }
+        }
+
+        // JSON
+
+        function parseJSON1(){
+            const txt = '{"name":"ullas","age":"22","city":"bengaluru"}';
+            const arr = '["Porsche","Audi","BMW"]';
+            const obj = JSON.parse(txt);
+            const myArr = JSON.parse(arr);
+            let dis = obj.name + ' ' + obj.age + ' ' + obj.city;
+            for(i = 0; i < myArr.length; i++){
+                dis += myArr[i] + " ";
+            }
+            //remove ' ' in txt and arr
+            dis += JSON.stringify(txt)+" "+JSON.stringify(arr);
+            myDemo.innerHTML = dis;
+        }
+
+        function storeJSON(){
+            const myObj = { name: "John", age: 31, city: "New York" };
+            const myJSON = JSON.stringify(myObj);
+            localStorage.setItem("testJSON", myJSON);
+
+            let text = localStorage.getItem("testJSON");
+            let obj = JSON.parse(text);
+            myDemo.innerHTML = obj.name + " " + obj.age+" " + obj.city;
+        }
+
+
+        function parseJSON2(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                myJSONDisplay(this);
+            }
+            xhttp.open("GET", "myjson.txt");
+            xhttp.send();
+        }
+
+        function myJSONDisplay(json){
+            let jsonString = json.responseText;
+            let jsonObj = JSON.parse(jsonString);
+            let disobj = jsonObj.name + " " + jsonObj.age + " , ";
+            for(const i in jsonObj.cars){
+                disobj += jsonObj.cars[i].car + " - " + jsonObj.cars[i].color +" , ";
+            }
+            myDemo.innerHTML = disobj;
+        }
+
+    </script>
+</body>
+</html>

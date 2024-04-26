@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .big-font{
+            font-size: x-large;
+            color: purple;
+            font-style: italic;
+        }
+    </style>
+    
+</head>
+<body>
+    <p id="id01">Porsche</p>
+    <p id="id02">BMW</p>
+    <p id="id03">Ferrari</p>
+
+    <p id="demo"></p>
+
+    <a href="">Google</a>
+
+    <input type="text">Text Here
+
+    <h6></h6>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // $(document).ready(function(){
+            let myEle = $("#id01");
+            $("#demo").text(" Demo 1 ele : "+ myEle[0].innerHTML);
+            myEle.text("Porsche 911");
+
+            myEle.html("<strong>Hello <strong>");
+
+            myEle.hide(); 
+            myEle.show(); 
+            
+            myEle.css("color", "green");
+
+            myEle.text(myEle.parent().prop("nodeName"));
+
+            $("#id02").addClass("big-font");
+            $("#id02").removeClass("big-font");
+            console.log($("#id02").hasClass("big-font"));
+
+            $("p").css("background-color", "blue");
+            $("p").first().css("background-color", "green");
+            $("p").last().css("background-color", "orange");
+
+            $("a").attr("href", "http://www.google.com");
+
+            myEle.click(function(){
+                myEle.css("background-color", "beige");
+            })
+
+            $("input").keypress(function(event){
+                $("h6").text($("h6").text()+" "+event.key);
+            })
+
+            $("a").on("mouseover", function(){
+                myEle.css("background-color", "beige");
+            })
+
+            $("a").on("mouseout", function(){
+                myEle.css("background-color", "coral");
+            })
+
+            myEle.before("<button>Button Element</button>");
+            myEle.after("<button>Button Element</button>");
+            myEle.prepend("<button>Button Element</button>");
+            myEle.append("<button>Button Element</button>");
+
+            // myEle.click(function(){
+            //     $("a").hide();
+            // })
+
+            // $("#id02").click(function(){
+            //     $("a").show();
+            // })
+
+            // myEle.click(function(){
+            //     $("a").toggle();
+            // })
+
+            // myEle.click(function(){
+            //     $("a").fadeOut();
+            // })
+
+            // myEle.click(function(){
+            //     $("a").fadeIn();
+            // })
+
+            myEle.click(function(){
+                $("a").fadeToggle();
+            })
+
+            // $("#demo").click(function(){
+            //     $("#id03").slideUp();
+            // })
+
+            // $("#demo").click(function(){
+            //     $("#id03").slideDown();
+            // })
+
+            $("#demo").click(function(){
+                $("#id03").slideToggle();
+            })
+
+            $("#id02").click(function(){
+                $(this).animate({opacity:0.5})
+            })
+
+            //myEle.remove();
+        // });   
+    </script>
+</body>
+</html>
